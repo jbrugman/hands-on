@@ -33,6 +33,23 @@ Roep in een tweede terminal aan:
 curl http://127.0.0.1:8080/hello
 ```
 
+De MCP-server is bereikbaar op `http://127.0.0.1:8080/mcp` via Streamable HTTP.
+Verbind een MCP-client met deze URL en roep de tool `echo` aan met `{"input":"Hallo"}`. 
+Het tekstresultaat is `MCP Uitgevoerd: Hallo`.
+Deze tool heeft geen LM Studio-verbinding nodig.
+
+```json
+{
+  "mcpServers": {
+    "testmcp": {
+      "url": "http://127.0.0.1:8080/mcp",
+      "timeout": 300
+    }
+}
+```
+
+
+
 Of bouw en start de jar:
 
 ```sh
@@ -40,6 +57,6 @@ mvn clean package
 java -jar target/openai-hello-world-0.0.1-SNAPSHOT.jar
 ```
 
-Er is geen AI-framework of OpenAI SDK nodig: de HTTP-aanroep gebruikt Spring`RestClient`. 
+De MCP-server gebruikt Spring AI. De HTTP-aanroep naar LM Studio gebruikt Spring `RestClient`.
 De code leest de `output_text`-onderdelen uit `output`, zodat een eventueel reasoning-item vóór het antwoord niet als antwoord wordt behandeld.
 Een onbereikbare backend, een HTTP-fout of een antwoord zonder tekst resulteert in HTTP 502.
