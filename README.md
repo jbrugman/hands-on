@@ -38,6 +38,12 @@ Verbind een MCP-client met deze URL en roep de tool `echo` aan met `{"input":"Ha
 Het tekstresultaat is `MCP Uitgevoerd: Hallo`.
 Deze tool heeft geen LM Studio-verbinding nodig.
 
+De tool `roundtrip` ("Voer een actie uit op een ai model") vraagt LM Studio om
+een korte uitleg of een kort verhaal over `input`. Roep deze bijvoorbeeld aan met
+`{"input":"de maan"}`. De tool gebruikt `openai.responses-url`, `openai.model`
+en de eventuele `openai.api-key` uit de configuratie en geeft de antwoordtekst terug.
+Bij een mislukte AI-aanroep retourneert MCP een toolfout.
+
 ```json
 {
   "mcpServers": {
