@@ -506,7 +506,7 @@ svg{--base:#071b17;--card:#0c2620;--panel:#09201b;--section:#103b2e;--green:#00a
 <text x="748" y="2359" font-size="19" fill="var(--mint)" font-weight="700" text-anchor="start">✓</text>
 <text x="775" y="2359" font-size="16" fill="var(--ink)" font-weight="400" text-anchor="start">Verander één instelling tegelijk.</text>
 <text x="748" y="2381" font-size="19" fill="var(--mint)" font-weight="700" text-anchor="start">✓</text>
-<text x="775" y="2381" font-size="16" fill="var(--ink)" font-weight="400" text-anchor="start">Noteer de contextrelevante woorden.</text>
+<text x="775" y="2381" font-size="16" fill="var(--ink)" font-weight="400" text-anchor="start">Noteer de gebruikte instellingen en waarden.</text>
 <text x="748" y="2403" font-size="19" fill="var(--mint)" font-weight="700" text-anchor="start">✓</text>
 <text x="775" y="2403" font-size="16" fill="var(--ink)" font-weight="400" text-anchor="start">Vergelijk met dezelfde prompt.</text>
 <text x="748" y="2425" font-size="19" fill="var(--mint)" font-weight="700" text-anchor="start">✓</text>
