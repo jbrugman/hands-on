@@ -1,12 +1,206 @@
 <!doctype html>
-<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="dark"><title>Local LLM Settings · JDriven</title>
-<style>
-:root{--green:#00ad72;--bg:#061410;--text:#f3f8f5}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}header{max-width:1472px;margin:auto;padding:20px 16px;display:flex;gap:16px;align-items:center;justify-content:space-between}header p{margin:0;color:#b7cdc1;font-size:14px}nav{display:flex;gap:8px;flex-wrap:wrap}button,.download{border:1px solid #267a58;background:#103e2d;color:#f3f8f5;padding:10px 16px;border-radius:8px;font:600 14px Arial;cursor:pointer;text-decoration:none}button:hover,.download:hover{background:#176041}button:focus-visible,.download:focus-visible{outline:3px solid #9ff2cb;outline-offset:3px}main{max-width:1472px;margin:auto;padding:0 16px 24px}.poster{margin:0;border:1px solid #214d3a;border-radius:16px;overflow:hidden;box-shadow:0 24px 80px #0005}.poster>img{display:block;width:100%;height:auto;object-fit:contain}.hint{color:#b7cdc1;font-size:13px;padding:12px 2px}.actual-size .poster{width:1440px}.actual-size main{max-width:none;overflow-x:auto}@media(max-width:650px){header{align-items:flex-start;flex-direction:column}header p{max-width:36ch;line-height:1.5}button,.download{padding:9px 12px}.poster{border-radius:8px}main{padding:0 6px 16px}}@media print{@page{size:A3 portrait;margin:5mm}html,body{background:#071b17!important}header,.hint{display:none!important}main{max-width:none!important;width:100%!important;padding:0!important;overflow:visible!important}.poster{width:100%!important;border:0!important;border-radius:0;box-shadow:none}.poster>img{width:100%!important;height:auto;max-height:409mm;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
-</style></head><body>
-<header><p>JDriven · Local LLM Settings</p><nav aria-label="Infographic-acties"><button type="button" id="zoom" aria-pressed="false">Ware grootte</button><a class="download" href="local-llm-settings-jdriven.svg" download>Download SVG</a><button type="button" id="print">Afdrukken / PDF</button></nav></header>
-<main><figure class="poster" aria-label="Infographic: Local LLM Settings"><img src="local-llm-settings-jdriven.svg" alt="Local LLM Settings: uitleg over sampling, reasoning, context, geheugen en prestaties" width="1440" height="2540"></figure></main>
-<script>
-document.querySelector('#zoom').addEventListener('click', event => {const enabled=document.body.classList.toggle('actual-size');event.currentTarget.setAttribute('aria-pressed',String(enabled));event.currentTarget.textContent=enabled?'Passend in venster':'Ware grootte';});
-document.querySelector('#print').addEventListener('click',()=>window.print());
-</script></body></html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>Local LLM Settings · JDriven</title>
+
+    <style>
+      :root {
+        --bg: #061410;
+        --text: #f3f8f5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      header {
+        max-width: 1472px;
+        margin: auto;
+        padding: 20px 16px;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      header p {
+        margin: 0;
+        color: #b7cdc1;
+        font-size: 14px;
+      }
+
+      nav {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      button,
+      .download {
+        border: 1px solid #267a58;
+        background: #103e2d;
+        color: #f3f8f5;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font: 600 14px Arial;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      button:hover,
+      .download:hover {
+        background: #176041;
+      }
+
+      button:focus-visible,
+      .download:focus-visible {
+        outline: 3px solid #9ff2cb;
+        outline-offset: 3px;
+      }
+
+      main {
+        max-width: 1472px;
+        margin: auto;
+        padding: 0 16px 24px;
+      }
+
+      .poster {
+        margin: 0;
+        border: 1px solid #214d3a;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 24px 80px #0005;
+      }
+
+      .poster > img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .actual-size .poster {
+        width: 1440px;
+      }
+
+      .actual-size main {
+        max-width: none;
+        overflow-x: auto;
+      }
+
+      @media (max-width: 650px) {
+        header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        header p {
+          max-width: 36ch;
+          line-height: 1.5;
+        }
+
+        button,
+        .download {
+          padding: 9px 12px;
+        }
+
+        .poster {
+          border-radius: 8px;
+        }
+
+        main {
+          padding: 0 6px 16px;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A3 portrait;
+          margin: 5mm;
+        }
+
+        html,
+        body {
+          background: #071b17 !important;
+        }
+
+        header {
+          display: none !important;
+        }
+
+        main {
+          max-width: none !important;
+          width: 100% !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+
+        .poster {
+          width: 100% !important;
+          border: 0 !important;
+          border-radius: 0;
+          box-shadow: none;
+        }
+
+        .poster > img {
+          width: 100% !important;
+          height: auto;
+          max-height: 409mm;
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <p>JDriven · Local LLM Settings</p>
+      <nav aria-label="Infographic-acties">
+        <button type="button" id="zoom" aria-pressed="false">
+          Ware grootte
+        </button>
+        <a class="download" href="local-llm-settings-jdriven.svg" download>
+          Download SVG
+        </a>
+        <button type="button" id="print">Afdrukken / PDF</button>
+      </nav>
+    </header>
+
+    <main>
+      <figure class="poster" aria-label="Infographic: Local LLM Settings">
+        <img
+          src="local-llm-settings-jdriven.svg"
+          alt="Local LLM Settings: uitleg over sampling, reasoning, context, geheugen en prestaties"
+          width="1440"
+          height="2540"
+        >
+      </figure>
+    </main>
+
+    <script>
+      document.querySelector('#zoom').addEventListener('click', event => {
+        const enabled = document.body.classList.toggle('actual-size');
+
+        event.currentTarget.setAttribute('aria-pressed', String(enabled));
+        event.currentTarget.textContent = enabled
+          ? 'Passend in venster'
+          : 'Ware grootte';
+      });
+
+      document.querySelector('#print').addEventListener('click', () => {
+        window.print();
+      });
+    </script>
+  </body>
+</html>
