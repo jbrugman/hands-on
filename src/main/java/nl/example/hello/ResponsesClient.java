@@ -3,6 +3,7 @@ package nl.example.hello;
 import java.net.http.HttpClient;
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -39,6 +40,16 @@ public class ResponsesClient {
   }
 
   public String respond(String input, boolean disableReasoning) {
+    return execute(input, disableReasoning);
+  }
+
+  public String respond(String input, String systemPrompt) {
+    return execute(List.of(
+        Map.of("role", "system", "content", systemPrompt),
+        Map.of("role", "user", "content", input)), false);
+  }
+
+  private String execute(Object input, boolean disableReasoning) {
     var body = new HashMap<String, Object>(Map.of("model", model, "input", input));
     if (disableReasoning) {
       body.put("reasoning", Map.of("effort", "none"));

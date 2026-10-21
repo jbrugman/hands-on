@@ -23,4 +23,19 @@ public class HelloController {
       throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, exception.getMessage(), exception);
     }
   }
+
+  @GetMapping(value = "/hello/poem", produces = MediaType.TEXT_PLAIN_VALUE)
+  public String poem() {
+    var systemPrompt = """
+        <system_prompt>
+          <role>Je bent een helloworld dicht generator, je taak is om de mooiste korte helloworld gedichtjes te maken</role>
+          gebruik 10 tot 40 woorden.
+        </system_prompt>
+        """;
+    try {
+      return responsesClient.respond("Say hello world in one short sentence.", systemPrompt);
+    } catch (RestClientException exception) {
+      throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, exception.getMessage(), exception);
+    }
+  }
 }
