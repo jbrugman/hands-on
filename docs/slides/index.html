@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>JDriven - JSlider</title>
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai-sublime.min.css" id="highlight-theme">
+
+  <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+<img id="jdrivenlogo" src="logo.svg">
+<div class="reveal">
+  <div class="slides"></div>
+</div>
+
+<script src="slides/slides.js"></script>
+<script src="dist/reveal.js"></script>
+<script src="dist/jquery.min.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script src="plugin/zoom/zoom.js"></script>
+<script src="plugin/pointer/mouse-pointer.js"></script>
+<script>
+  function createSection(fileName) {
+    let section = document.createElement("section");
+    section.setAttribute('data-markdown', `slides/${fileName}`);
+    section.setAttribute('data-separator', '^---slide---');
+    section.setAttribute('data-separator-vertical', '^---vertical---');
+    section.setAttribute('data-separator-notes', '^Note:');
+    return section;
+  }
+
+  let slidesParent = $(".reveal > .slides");
+
+  slides.forEach(fileName => slidesParent.append(createSection(fileName)));
+
+  var urlParams = new URLSearchParams(window.location.search)
+  if (urlParams.has('theme')) {
+    $("#theme").prop("href", "dist/theme/" + urlParams.get('theme') + ".css")
+  }
+  if (urlParams.has('highlighttheme')) {
+    $("#highlight-theme").prop("href", "plugin/highlight/" + urlParams.get('highlighttheme') + ".css")
+  }
+
+  if (twitterhandle) {
+    $(".reveal").append('<div class="twitterhandle">' + twitterhandle + '</div>');
+  } else {
+    console.log("no twitter handle found");
+  }
+</script>
+<script>
+  // More info about initialization & config:
+  // - https://revealjs.com/initialization/
+  // - https://revealjs.com/config/
+  Reveal.initialize({
+    hash: true,
+    width: '100%',
+    height: '100%',
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom],
+    dependencies: [
+        { src: 'plugin/mouse-pointer/mouse-pointer.js', async: true },
+    ]
+  });
+</script>
+<script>
+  Reveal.on('ready', () => {
+    const disclaimer = document.querySelector('.intro-disclaimer');
+    if (!disclaimer) return;
+    const slide = disclaimer.closest('section');
+    document.body.appendChild(disclaimer);
+    const updateDisclaimer = () => { disclaimer.hidden = Reveal.getCurrentSlide() !== slide; };
+    Reveal.on('slidechanged', updateDisclaimer);
+    updateDisclaimer();
+  });
+</script>
+</body>
+</html>
